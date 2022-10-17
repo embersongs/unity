@@ -7,6 +7,6 @@ public class ColliderDestroy : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 1);
     }
 }

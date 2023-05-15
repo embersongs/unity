@@ -14,21 +14,13 @@ public class Player : MonoBehaviour
     private bool isMoving;
     public bool onGround;
     private float moveHorizontal;
-    private int exJumps;
+    public int exJumps;
 
     void Start()
     { 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ground"))
-        {
-            onGround = false;
-        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -40,14 +32,46 @@ public class Player : MonoBehaviour
             anim.SetBool("isJump", false);
             anim.SetBool("isFall", false);
         }
+
+        if (collision.CompareTag("Fire"))
+        {
+            anim.SetBool("isHit", true);
+        }
+
+    }
+
+    private void endJump2()
+    {
+        anim.SetBool("isJump2", false);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground"))
+        {
+            onGround = false;
+            
+        }
+
+        if (collision.CompareTag("Fire"))
+        {
+            anim.SetBool("isHit", false);
+        }
     }
 
     private void Update()
     {
+        
         moveHorizontal = Input.GetAxis("Horizontal");
         if (Input.GetKeyDown(KeyCode.Space) && exJumps > 0)
         {
+            
             exJumps--;
+            if (exJumps == 0)
+            {
+                Debug.Log("Jumpo");
+                anim.SetBool("isJump2", true);
+            }
             rb.velocity = transform.up * jumpForce;
         }
 

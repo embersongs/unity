@@ -16,7 +16,7 @@ public class generateWorld : MonoBehaviour
     private float playerPosition;
 
     //координаты положения земли
-    public Vector2 startGroundPos;
+    private Vector2 startGroundPos;
 
     //разница положения между новой позицие и старой игрока, при достижении 50 будет в минус
     private float dX;

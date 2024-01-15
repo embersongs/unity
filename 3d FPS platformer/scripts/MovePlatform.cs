@@ -7,7 +7,7 @@ public class MovePlatform : MonoBehaviour
 {
     public GameObject Player;
 
-    // Как только на платформу запрыгнет Player, делаем его дочерним элементом
+    // РљР°Рє С‚РѕР»СЊРєРѕ РЅР° РїР»Р°С‚С„РѕСЂРјСѓ Р·Р°РїСЂС‹РіРЅРµС‚ Player, РґРµР»Р°РµРј РµРіРѕ РґРѕС‡РµСЂРЅРёРј СЌР»РµРјРµРЅС‚РѕРј
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == Player)
@@ -16,7 +16,7 @@ public class MovePlatform : MonoBehaviour
         }
     }
 
-    //При покидании платформы разрываем связь
+    //РџСЂРё РїРѕРєРёРґР°РЅРёРё РїР»Р°С‚С„РѕСЂРјС‹ СЂР°Р·СЂС‹РІР°РµРј СЃРІСЏР·СЊ
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == Player)
@@ -28,8 +28,8 @@ public class MovePlatform : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Двигаем куб, важно что именно через Fixed, иначе игрок будет двигаться не правильно
-        var step = 2 * Time.deltaTime; //2 скорость движения платформы
+        //Р”РІРёРіР°РµРј РєСѓР±, РІР°Р¶РЅРѕ С‡С‚Рѕ РёРјРµРЅРЅРѕ С‡РµСЂРµР· Fixed, РёРЅР°С‡Рµ РёРіСЂРѕРє Р±СѓРґРµС‚ РґРІРёРіР°С‚СЊСЃСЏ РЅРµ РїСЂР°РІРёР»СЊРЅРѕ
+        var step = 2 * Time.deltaTime; //2 СЃРєРѕСЂРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ РїР»Р°С‚С„РѕСЂРјС‹
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(-1.0f, 0.3f, 110.0f), step);
     }
 }

@@ -7,29 +7,29 @@ public class MovePlatform : MonoBehaviour
 {
     public GameObject Player;
 
-    // Как только на платформу запрыгнет Player, делаем его дочерним элементом
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == Player)
+        if (other.gameObject.name == "Player")
         {
             other.gameObject.transform.SetParent(transform);
         }
     }
 
-    //При покидании платформы разрываем связь
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == Player)
+        if (other.gameObject.name == "Player")
         {
             other.gameObject.transform.SetParent(null);
         }
     }
 
 
+
+    // Update is called once per frame
     void FixedUpdate()
     {
-        //Двигаем куб, важно что именно через Fixed, иначе игрок будет двигаться не правильно
-        var step = 2 * Time.deltaTime; //2 скорость движения платформы
+        var step = 1 * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(-1.0f, 0.3f, 110.0f), step);
     }
 }

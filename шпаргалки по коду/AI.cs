@@ -25,7 +25,7 @@ public class AI : MonoBehaviour
     }
 
 
-    //импульс силы в сторону цели
+    //РёРјРїСѓР»СЊСЃ СЃРёР»С‹ РІ СЃС‚РѕСЂРѕРЅСѓ С†РµР»Рё
     private void MoveToTarget()
     {
         if (target != null)
@@ -36,7 +36,7 @@ public class AI : MonoBehaviour
 
     }
 
-    //импульс в случайном направлении
+    //РёРјРїСѓР»СЊСЃ РІ СЃР»СѓС‡Р°Р№РЅРѕРј РЅР°РїСЂР°РІР»РµРЅРёРё
     private void Move()
     {
         float randomAngle = Random.Range(0f, 360f);

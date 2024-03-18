@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; //подключим библиотеку для загрузки уровней
+using UnityEngine.SceneManagement; //РїРѕРґРєР»СЋС‡РёРј Р±РёР±Р»РёРѕС‚РµРєСѓ РґР»СЏ Р·Р°РіСЂСѓР·РєРё СѓСЂРѕРІРЅРµР№
 
 public class FinishLevel : MonoBehaviour
 {
-    //Имя сцены со следующим уровнем
+    //РРјСЏ СЃС†РµРЅС‹ СЃРѕ СЃР»РµРґСѓСЋС‰РёРј СѓСЂРѕРІРЅРµРј
     public string nextLevelName = "Level2";
 
-    //Как только столкнулись с другим коллайдером
+    //РљР°Рє С‚РѕР»СЊРєРѕ СЃС‚РѕР»РєРЅСѓР»РёСЃСЊ СЃ РґСЂСѓРіРёРј РєРѕР»Р»Р°Р№РґРµСЂРѕРј
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Проверим это игрок
+        //РџСЂРѕРІРµСЂРёРј СЌС‚Рѕ РёРіСЂРѕРє
         if (collision.CompareTag("Player"))
         {
-            //Если да, то загрузим следующий уровень по имени из nextLevelName
+            //Р•СЃР»Рё РґР°, С‚Рѕ Р·Р°РіСЂСѓР·РёРј СЃР»РµРґСѓСЋС‰РёР№ СѓСЂРѕРІРµРЅСЊ РїРѕ РёРјРµРЅРё РёР· nextLevelName
             SceneManager.LoadScene(nextLevelName);
         }
     }

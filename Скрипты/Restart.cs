@@ -7,7 +7,7 @@ public class Restart : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        // Проверяем, что объект, вошедший в триггер, имеет тег "Finish"
+        // Проверяем, что объект, вошедший в триггер, имеет тег "Player"
         if (other.CompareTag("Player"))
         {
             // Перезагружаем текущую сцену
